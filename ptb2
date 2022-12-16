@@ -1,0 +1,41 @@
+import math
+def tongnghiem2ptb2(a, b, c) :
+    s = 0
+    t = 0
+    if a == 0 :
+       if b == 0 :
+            if c == 0 :
+                kq = 1000
+                x = 0
+                print('Phương trình có vô số nghiệm')
+            else :
+                kq = 0
+                x = 0
+                print('Phương trình vô nghiệm')
+       else :
+            x = - c / b
+            kq = 1
+            print('Phương trình có nghiệm đơn:' ,x)
+    else :
+        delta = b * b - 4 * a * c
+        if delta > 0 :
+            x1 = ((- b + math.sqrt(delta)) / (2 * a))
+            x2 = ((- b - math.sqrt(delta)) / (2 * a))
+            kq = 2
+            x = x1 + x2
+            print('Phương trình có hai nghiệm phân biệt',x1,x2)
+        elif delta == 0 :
+            x1 = ((- b + math.sqrt(delta)) / (2 * a))
+            x2 = ((- b - math.sqrt(delta)) / (2 * a))
+            kq = 1
+            x = x1 + x2
+            print('Phương trình có hai nghiệm kép')
+        else :
+            kq = 0
+            x = 0
+            print('Phương trình vô nghiệm')
+    return (kq, x)
+a=int(input())
+b=int(input())
+c=int(input())
+print(tongnghiem2ptb2(a,b,c))
